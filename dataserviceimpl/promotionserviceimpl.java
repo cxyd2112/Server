@@ -1,5 +1,6 @@
 package dataserviceimpl;
 
+import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class promotionserviceimpl implements promotiondataservice{
 		
 	}
 	
-    public List<PromotionPo> find(Date date){
+    public List<PromotionPo> find(Date date) throws RemoteException{
     	List<PromotionPo> promotionList = new ArrayList<PromotionPo>();
 		Iterator<Map.Entry<String, PromotionPo>> iterator = map.entrySet().iterator();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -47,7 +48,7 @@ public class promotionserviceimpl implements promotiondataservice{
 		return promotionList;
     }
 	
-	public boolean insert(PromotionPo promotionPo){
+	public boolean insert(PromotionPo promotionPo) throws RemoteException{
 		/*
 		 * 列表中添加策略并写入数据文件中
 		 */
