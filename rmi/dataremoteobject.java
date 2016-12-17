@@ -22,19 +22,19 @@ public class dataremoteobject extends UnicastRemoteObject implements userservice
 
 
     @Override
-    public userpo userfind(int id) {return userserve.userfind(id);
+    public userpo userfind(int id) throws RemoteException {return userserve.userfind(id);
     }
 
     @Override
-    public int userinsert(userpo upo, char[] password) {
+    public int userinsert(userpo upo, char[] password) throws RemoteException {
         return userserve.userinsert(upo,password);
     }
 
     @Override
-    public boolean userupdate(userpo upo) {return userserve.userupdate(upo);}
+    public boolean userupdate(userpo upo) throws RemoteException {return userserve.userupdate(upo);}
 
     @Override
-    public boolean userlogin(int id, char[] password) {
+    public boolean userlogin(int id, char[] password) throws RemoteException {
         return userserve.userlogin(id,password);
     }
 }

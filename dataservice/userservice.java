@@ -3,15 +3,18 @@ package dataservice;
 
 import po.userpo;
 
-public interface userservice {
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-    userpo userfind(int id);
+public interface userservice extends Remote{
 
-    int userinsert(userpo upo,char[] password);
+    userpo userfind(int id) throws RemoteException;
 
-    boolean userupdate(userpo upo);
+    int userinsert(userpo upo,char[] password) throws RemoteException;
 
-    boolean userlogin(int id,char[] password);
+    boolean userupdate(userpo upo) throws RemoteException;
+
+    boolean userlogin(int id,char[] password) throws RemoteException ;
 
 
 }

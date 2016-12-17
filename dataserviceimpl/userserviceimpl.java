@@ -5,6 +5,7 @@ import datahelper.user;
 import dataservice.userservice;
 import po.userpo;
 
+import java.rmi.RemoteException;
 import java.util.Locale;
 
 /**
@@ -26,7 +27,7 @@ public class userserviceimpl implements  userservice{
     }
 
     @Override
-    public userpo userfind(int id) {
+    public userpo userfind(int id) throws RemoteException {
 
         values=user.find(id);
         if (values.equals("") )
@@ -43,7 +44,7 @@ public class userserviceimpl implements  userservice{
     }
 
     @Override
-    public int userinsert(userpo upo,char[] password) {
+    public int userinsert(userpo upo,char[] password) throws RemoteException{
         name=upo.getName();
         credit=upo.getCredit();
         number=upo.getNumber();
@@ -61,7 +62,7 @@ public class userserviceimpl implements  userservice{
     }
 
     @Override
-    public boolean userupdate(userpo upo) {
+    public boolean userupdate(userpo upo) throws RemoteException{
         id=upo.getid();
         name=upo.getName();
         credit=upo.getCredit();
@@ -75,7 +76,7 @@ public class userserviceimpl implements  userservice{
 
 
     @Override
-    public boolean userlogin(int id,char[] password) {
+    public boolean userlogin(int id,char[] password) throws RemoteException{
         values=user.login(id);
         pass=values.toCharArray();
         if (values.equals("")) return false;
