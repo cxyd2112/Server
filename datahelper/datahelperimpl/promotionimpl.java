@@ -15,7 +15,7 @@ public class promotionimpl implements promotion{
 	 
 	 public Map<String,PromotionPo> getPromotionData(){
 		Map<String,PromotionPo> map = new HashMap<String,PromotionPo>();
-		String str = "SElECT * FROM homework.promotion ";
+		String str = "SElECT * FROM homework.promotion;";
 		String str2 = run.read(str);
 		String[] datas = str2.split(";");
 		for(int j=0;j<datas.length;j++){
