@@ -15,7 +15,7 @@ public class promotionimpl implements promotion{
 	 
 	 public Map<String,PromotionPo> getPromotionData(){
 		Map<String,PromotionPo> map = new HashMap<String,PromotionPo>();
-		String str = "SElECT * FROM software.homework ";
+		String str = "SElECT * FROM homework.promotion ";
 		String str2 = run.read(str);
 		String[] datas = str2.split(";");
 		for(int j=0;j<datas.length;j++){
@@ -37,7 +37,7 @@ public class promotionimpl implements promotion{
 		 //写入数据		
 		String str = "\""+promotionPo.getPromotionNo()+"\",\""+promotionPo.getPromotionName()+"\",\""+
 		promotionPo.getBeginTime()+"\",\""+promotionPo.getEndTime()+"\",\""+promotionPo.getDiscount()+"\",\""+promotionPo.getPlace()+"\"";
-		String str1 = "INSERT INTO software.homework(id,promotionName,beginTime,endTime,discount,place) VALUES("+str+");";
+		String str1 = "INSERT INTO homework.promotion(id,promotionName,beginTime,endTime,discount,place) VALUES("+str+");";
 		int i=run.write(str1);	
 		if(i==1){
 			return true;
