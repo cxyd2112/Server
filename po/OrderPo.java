@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by huihantao on 2016/11/30.
  */
-public class orderpo implements Serializable {
+public class OrderPo implements Serializable {
     private static final long serialVersionUID=3L;
 
 
@@ -15,14 +15,14 @@ public class orderpo implements Serializable {
     private long createtime;
     private long executetime;
     private long delaytime;
-    // private int duringtime;
+    private int duringtime;
     private int value;
     private int status;
     private String assess;
 
 
 
-    public orderpo(int orderid, int userid, int hotelid, long createtime, long executetime, long delaytime, int duringtime, int value, int status) {
+    public OrderPo(int orderid, int userid, int hotelid, long createtime, long executetime, long delaytime, int duringtime, int value, int status) {
         this.orderid = orderid;
         this.userid = userid;
         this.hotelid = hotelid;

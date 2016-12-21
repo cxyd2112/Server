@@ -15,7 +15,7 @@ public interface user {
 //    用户信息更改
     boolean update(String values);
 
-    String login(int id);
+
 
 
 }

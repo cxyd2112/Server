@@ -23,7 +23,7 @@ public class userimpl implements user {
     @Override
     public boolean insert(String values,String log){
         String sql1="INSERT INTO user(userid, name ,credit,number) VALUES("+values+");";
-        String sql2="INSERT INTO login(id, password) VALUES("+log+");";
+        String sql2="INSERT INTO logindataservice(id, password) VALUES("+log+");";
         int i=run.write(sql1);
         int j=run.write(sql2);
 
@@ -38,13 +38,7 @@ public class userimpl implements user {
         return (i==2);
     }
 
-    @Override
-    public String login(int id) {
-        String sql="SELECT password FROM login WHERE id="+id;
 
-        return run.read(sql);
-
-    }
 
 
 }

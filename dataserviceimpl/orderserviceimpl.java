@@ -1,16 +1,16 @@
 package dataserviceimpl;
 
 import datahelper.datahelperimpl.orderimpl;
-import dataservice.orderservice;
+import dataservice.orderdataservice;
 import datahelper.order;
-import po.orderpo;
+import po.OrderPo;
 
 import java.util.ArrayList;
 
 /**
  * Created by huihantao on 2016/11/30.
  */
-public class orderserviceimpl implements orderservice {
+public class orderserviceimpl implements orderdataservice {
     private String values;
     private order order;
 
@@ -19,7 +19,7 @@ public class orderserviceimpl implements orderservice {
     }
 
     @Override
-    public orderpo orderfindbyid(int orderid) {
+    public OrderPo orderfindbyid(int orderid) {
         values=order.find("orderid",orderid);
         if (values.equals("")) return  null;
         String[] orders=values.split("\\.");
@@ -34,16 +34,16 @@ public class orderserviceimpl implements orderservice {
         int status=Integer.parseInt(s[8]);
 
 
-        return new orderpo(orderid,userid,hotelid,createtime,executetime,delaytime,duringtime,value,status);
+        return new OrderPo(orderid,userid,hotelid,createtime,executetime,delaytime,duringtime,value,status);
     }
 
     @Override
-    public ArrayList<orderpo> orderfindbyuser(int userid) {
+    public ArrayList<OrderPo> orderfindbyuser(int userid) {
         values=order.find("userid",userid);
 
         if (values.equals("")) return  null;
         String[] orders=values.split("\\.");
-        ArrayList<orderpo> res=new ArrayList<>();
+        ArrayList<OrderPo> res=new ArrayList<>();
         for(int i=0;i<orders.length;i++) {
 
             String[] s = orders[i].split(",");
@@ -55,17 +55,17 @@ public class orderserviceimpl implements orderservice {
             int duringtime = Integer.parseInt(s[6]);
             int value = Integer.parseInt(s[7]);
             int status = Integer.parseInt(s[8]);
-            res.add(new orderpo(orderid,userid,hotelid,createtime,executetime,delaytime,duringtime,value,status));
+            res.add(new OrderPo(orderid,userid,hotelid,createtime,executetime,delaytime,duringtime,value,status));
         }
         return res;
     }
 
     @Override
-    public ArrayList<orderpo> orderfindbyhotel(int hotelid) {
+    public ArrayList<OrderPo> orderfindbyhotel(int hotelid) {
         values=order.find("hotelid",hotelid);
         if (values.equals("")) return  null;
         String[] orders=values.split("\\.");
-        ArrayList<orderpo> res=new ArrayList<>();
+        ArrayList<OrderPo> res=new ArrayList<>();
         for(int i=0;i<orders.length;i++) {
 
             String[] s = orders[i].split(",");
@@ -77,13 +77,13 @@ public class orderserviceimpl implements orderservice {
             int duringtime = Integer.parseInt(s[6]);
             int value = Integer.parseInt(s[7]);
             int status = Integer.parseInt(s[8]);
-            res.add(new orderpo(orderid,userid,hotelid,createtime,executetime,delaytime,duringtime,value,status));
+            res.add(new OrderPo(orderid,userid,hotelid,createtime,executetime,delaytime,duringtime,value,status));
         }
         return res;
     }
 
     @Override
-    public int orderinsert(orderpo opo) {
+    public int orderinsert(OrderPo opo) {
         int orderid=(int)(1000+Math.random()*(9000));
         while (!order.insert("'"+orderid+"',"+opo)){
             orderid=(int)(1000+Math.random()*(9000));
@@ -93,7 +93,7 @@ public class orderserviceimpl implements orderservice {
     }
 
     @Override
-    public boolean orderupdate(orderpo opo) {
+    public boolean orderupdate(OrderPo opo) {
         int orderid=opo.getOrderid();
         return order.insert("'"+orderid+"',"+opo);
     }

@@ -3,38 +3,46 @@ package rmi;
 /**
  * Created by huihantao on 2016/11/28.
  */
-import dataservice.userservice;
+import dataservice.logindataservice;
+import dataservice.userdataservice;
+import dataserviceimpl.loginserviceimpl;
 import dataserviceimpl.userserviceimpl;
-import po.userpo;
+import po.UserPo;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 
-public class dataremoteobject extends UnicastRemoteObject implements userservice {
+public class dataremoteobject extends UnicastRemoteObject implements userdataservice , logindataservice {
 
-    private static final long serialVersionUID = 4029039744279087114L;
+    private static final long serialVersionUID = 10L;
 
-    private userservice userserve;
+    private userdataservice userserve;
+    private logindataservice loginserve;
     public dataremoteobject() throws RemoteException{
         userserve=new userserviceimpl();
+        loginserve=new loginserviceimpl();
     }
 
 
     @Override
-    public userpo userfind(int id) throws RemoteException {return userserve.userfind(id);
+    public UserPo userfind(int id) throws RemoteException {
+        return userserve.userfind(id);
     }
 
     @Override
-    public int userinsert(userpo upo, char[] password) throws RemoteException {
+    public int userinsert(UserPo upo, char[] password) throws RemoteException {
         return userserve.userinsert(upo,password);
     }
 
     @Override
-    public boolean userupdate(userpo upo) throws RemoteException {return userserve.userupdate(upo);}
+    public boolean userupdate(UserPo upo) throws RemoteException {
+        return userserve.userupdate(upo);
+    }
+
 
     @Override
-    public boolean userlogin(int id, char[] password) throws RemoteException {
-        return userserve.userlogin(id,password);
+    public boolean login(String id, char[] password) throws RemoteException {
+        return loginserve.login(id,password);
     }
 }
