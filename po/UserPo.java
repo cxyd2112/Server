@@ -20,7 +20,7 @@ public class UserPo implements Serializable {
 
     private String company;
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 8383901821872620925L;
 
     public UserPo(){
         super();
