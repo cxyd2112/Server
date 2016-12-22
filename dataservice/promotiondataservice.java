@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
 
 public interface promotiondataservice extends Remote{
 	
-	public List<PromotionPo> find(Date date) throws RemoteException;
+	public List<PromotionPo> find() throws RemoteException;
 	
 	public boolean insert(PromotionPo promotionPo) throws RemoteException;
 
