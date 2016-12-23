@@ -28,22 +28,23 @@ public class promotionserviceimpl implements promotiondataservice{
 		
 	}
 	
-    public List<PromotionPo> find(Date date) throws RemoteException{
+    public List<PromotionPo> find() throws RemoteException{
     	List<PromotionPo> promotionList = new ArrayList<PromotionPo>();
 		Iterator<Map.Entry<String, PromotionPo>> iterator = map.entrySet().iterator();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		while(iterator.hasNext()){
 			Map.Entry<String, PromotionPo> entry = iterator.next();
 			PromotionPo promotionPo = entry.getValue();
-			try {
-				Date dateBegin = sdf.parse(promotionPo.getBeginTime());
-				if(dateBegin.getTime()>=date.getTime()){
-					promotionList.add(promotionPo);
-				}
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}	
+			promotionList.add(promotionPo);
+//			try {
+//				Date dateBegin = sdf.parse(promotionPo.getBeginTime());
+//				if(dateBegin.getTime()>=date.getTime()){
+//					promotionList.add(promotionPo);
+//				}
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}	
 		}
 		return promotionList;
     }

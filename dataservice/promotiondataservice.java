@@ -13,4 +13,5 @@ public interface promotiondataservice extends Remote {
     List<PromotionPo> promotionfind() throws RemoteException;
     int promotioninsert(PromotionPo pormotionPo) throws RemoteException;
    
+
 }
