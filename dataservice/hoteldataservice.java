@@ -12,6 +12,8 @@ import java.util.List;
 public interface hoteldataservice extends Remote {
     List<HotelPo> usergethotellist(int userid) throws RemoteException;
     
+    List<HotelPo> getallhotellist() throws RemoteException;
+    
     int hotelinsert(HotelPo hpo) throws RemoteException;
     
 	boolean hotelupdate(HotelPo hpo) throws RemoteException;

@@ -28,10 +28,10 @@ public class promotionserviceimpl implements promotiondataservice{
 		
 	}
 	
-    public List<PromotionPo> find() throws RemoteException{
+    public List<PromotionPo> promotionfind() throws RemoteException{
     	List<PromotionPo> promotionList = new ArrayList<PromotionPo>();
 		Iterator<Map.Entry<String, PromotionPo>> iterator = map.entrySet().iterator();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		while(iterator.hasNext()){
 			Map.Entry<String, PromotionPo> entry = iterator.next();
 			PromotionPo promotionPo = entry.getValue();
@@ -49,18 +49,20 @@ public class promotionserviceimpl implements promotiondataservice{
 		return promotionList;
     }
 	
-	public boolean insert(PromotionPo promotionPo) throws RemoteException{
+	public int promotioninsert(PromotionPo promotionPo) throws RemoteException{
 		/*
 		 * 列表中添加策略并写入数据文件中
 		 */
+		int id=(int)(1000+Math.random()*(1000));
 		String promotionName = promotionPo.getPromotionName();
+		promotionPo.setPromotionNo(id);
 		if(map.get(promotionName) == null){
 			map.put(promotionName, promotionPo);
 			if(promotion.updatePromotionData(promotionPo)){
-				return true;
+				return id;
 			}		
 		}
-		return false;
+		return id;
 	}
 
 }

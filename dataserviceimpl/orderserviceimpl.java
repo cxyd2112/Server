@@ -19,7 +19,7 @@ public class orderserviceimpl implements orderdataservice {
     }
 
     @Override
-    public OrderPo orderfindbyid(int orderid) {
+    public OrderPo orderfind(int orderid) {
         values=order.find("orderid",orderid);
         if (values.equals("")) return  null;
         String[] orders=values.split("\\.");
@@ -38,7 +38,7 @@ public class orderserviceimpl implements orderdataservice {
     }
 
     @Override
-    public ArrayList<OrderPo> orderfindbyuser(int userid) {
+    public ArrayList<OrderPo> findorderbyuserid(int userid) {
         values=order.find("userid",userid);
 
         if (values.equals("")) return  null;
@@ -61,7 +61,7 @@ public class orderserviceimpl implements orderdataservice {
     }
 
     @Override
-    public ArrayList<OrderPo> orderfindbyhotel(int hotelid) {
+    public ArrayList<OrderPo> findorderbyhotelid(int hotelid) {
         values=order.find("hotelid",hotelid);
         if (values.equals("")) return  null;
         String[] orders=values.split("\\.");
