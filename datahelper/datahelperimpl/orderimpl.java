@@ -22,14 +22,14 @@ public class orderimpl implements order {
 
     @Override
     public boolean insert(String values) {
-        String sql="INSERT INTO order(orderid,userid,hotelid,createtime,executetime,delaytime,duringtime,value,status) VALUES("+values+");";
+        String sql="INSERT INTO order(orderid,userid,hotelid,createtime,executetime,delaytime,endtime,value,status,roomnum,roomstyle,assess,discount,score) VALUES("+values+");";
         int i=run.write(sql);
         return (i==1);
     }
 
     @Override
     public boolean update(String values) {
-        String sql="REPLACE INTO order(orderid,userid,hotelid,createtime,executetime,delaytime,duringtime,value,status) VALUES("+values+");";
+        String sql="REPLACE INTO order(orderid,userid,hotelid,createtime,executetime,delaytime,endtime,value,status,roomnum,roomstyle,assess,discount,score) VALUES("+values+");";
         int i=run.write(sql);
         return (i==2);
     }

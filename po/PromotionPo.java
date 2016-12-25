@@ -36,7 +36,6 @@ public class PromotionPo implements Serializable{
 
 	public PromotionPo(int promotionNo,String promotionName,String beginTime,
 					   String endTime,double discount,String place){
-		super();
 		this.promotionNo = promotionNo;
 		this.promotionName = promotionName;
 		this.beginTime = beginTime;

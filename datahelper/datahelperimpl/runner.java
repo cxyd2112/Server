@@ -8,7 +8,7 @@ import java.sql.*;
 public class runner {
     private String url = "jdbc:mysql://localhost:3306/homework?useUnicode=true&characterEncoding=utf8&useSSL=true";
     private String user = "root";
-    private String password = "123";
+    private String password = "1234";
 
 //    数据库连接
     private Connection getcon() {

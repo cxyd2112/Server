@@ -5,4 +5,5 @@ package datahelper;
  */
 public interface login {
     String login(String id );
+    boolean logout(String id);
 }
