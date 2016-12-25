@@ -63,7 +63,6 @@ public class HotelPo implements Serializable{
 
 
     public HotelPo(String args){
-        System.out.println(args);
         String[] s=args.split(",");
         this.hotelID=Integer.parseInt(s[0]);
         this.position=s[1];
