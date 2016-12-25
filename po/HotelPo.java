@@ -1,5 +1,6 @@
 package po;
 
+import java.io.InputStream;
 import java.io.Serializable;
 
 public class HotelPo implements Serializable{
@@ -9,7 +10,9 @@ public class HotelPo implements Serializable{
     //hotelid 未4位整数 第一位是1
     // hotelname 为不超过10位字符串
     // 所有可用客房数量 不超过100
-    //position  只有4中选择，见po.address
+    //addres  只有4中选择，见po.address
+    //position
+
     // 所有房间价格不超过100
 
     // 星级只有12345
@@ -22,6 +25,13 @@ public class HotelPo implements Serializable{
 
     int hotelID;
     String position;
+    String address;
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
     String hotelName;
 
     int avdachuangfang;
@@ -30,20 +40,52 @@ public class HotelPo implements Serializable{
     int avsanrenjian;
     int dachuangfangprice;
 
+    public void setDachuangfangprice(int dachuangfangprice) {
+        this.dachuangfangprice = dachuangfangprice;
+    }
+    public void setShuangrenfangprice(int shuangrenfangprice) {
+        this.shuangrenfangprice = shuangrenfangprice;
+    }
+    public void setSanrenjianprice(int sanrenjianprice) {
+        this.sanrenjianprice = sanrenjianprice;
+    }
     int shuangrenfangprice;
     int sanrenjianprice;
     int star;
     double score;
     String assess;
     String description;
+    int scorenum;
 
     public HotelPo(){
         super();
     }
-    public HotelPo(int hotelID,String position,String hotelName,int dachuangfangprice,int shuangrenfangprice,int sanrenjianprice,int star,double score,String description){
+
+
+    public HotelPo(String args){
+        String[] s=args.split(",");
+        this.hotelID=Integer.parseInt(s[0]);
+        this.position=s[1];
+        address=s[2];
+        hotelName=s[3];
+        avdachuangfang=Integer.parseInt(s[4]);
+        avshuangrenfang=Integer.parseInt(s[5]);
+        avsanrenjian=Integer.parseInt(s[6]);
+        dachuangfangprice=Integer.parseInt(s[7]);
+        shuangrenfangprice=Integer.parseInt(s[8]);
+        sanrenjianprice=Integer.parseInt(s[9]);
+        star=Integer.parseInt(s[10]);
+        score= Integer.parseInt(s[11]);
+        assess=s[12];
+        description=s[13];
+        scorenum=Integer.parseInt(s[14]);
+    }
+
+    public HotelPo(int hotelID,String address,String position,String hotelName,int dachuangfangprice,int shuangrenfangprice,int sanrenjianprice,int star,double score,String description){
         this.hotelID = hotelID;
         this.position = position;
         this.hotelName = hotelName;
+        this.address=address;
         this.dachuangfangprice = dachuangfangprice;
         this.shuangrenfangprice = shuangrenfangprice;
         this.sanrenjianprice = sanrenjianprice;
@@ -129,6 +171,14 @@ public class HotelPo implements Serializable{
     }
     public void setDescription(String description){
         this.description = description;
+    }
+
+
+    public String toString(){
+        return "'"+position+"','"+address+"','"+hotelName+"','"+
+                avdachuangfang+"','"+avshuangrenfang+"','"+avsanrenjian+"','"+
+                dachuangfangprice+"','"+shuangrenfangprice+"','"+sanrenjianprice+
+                "','"+star+"','"+score+"','"+(assess==null?"":assess)+"','"+description+"','"+scorenum+"'";
     }
 
 
