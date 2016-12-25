@@ -63,6 +63,7 @@ public class HotelPo implements Serializable{
 
 
     public HotelPo(String args){
+        System.out.println(args);
         String[] s=args.split(",");
         this.hotelID=Integer.parseInt(s[0]);
         this.position=s[1];
@@ -75,7 +76,7 @@ public class HotelPo implements Serializable{
         shuangrenfangprice=Integer.parseInt(s[8]);
         sanrenjianprice=Integer.parseInt(s[9]);
         star=Integer.parseInt(s[10]);
-        score= Integer.parseInt(s[11]);
+        score= Double.parseDouble(s[11]);
         assess=s[12];
         description=s[13];
         scorenum=Integer.parseInt(s[14]);
