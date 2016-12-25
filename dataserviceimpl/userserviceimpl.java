@@ -20,6 +20,8 @@ public class userserviceimpl implements userdataservice {
     private String values;
     private int id;
     private char[] pass;
+    private String birthday;
+    private String company;
 
     public userserviceimpl(){
         user=new userimpl();
@@ -39,7 +41,9 @@ public class userserviceimpl implements userdataservice {
         name=s[1];
         credit=Integer.parseInt(s[2]);
         number= s[3];
-        return new UserPo();
+        birthday=s[4];
+        company=s[5];
+        return new UserPo(id,name,birthday,number,credit,company);
     }
 
     @Override
@@ -47,15 +51,18 @@ public class userserviceimpl implements userdataservice {
         name=upo.getUserName();
         credit=upo.getCredit();
         number=upo.getPhone();
+        birthday=upo.getBirthday();
+        company=upo.getCompany();
+
         id=(int)(1000+Math.random()*(1000));
-        values="'"+id+"','"+name+"','"+credit+"','"+number+"'";
+        values="'"+id+"','"+name+"','"+credit+"','"+number+"','"+(birthday==null?"":birthday)+"','"+(company==null?"":company)+"'";
         for(int i=0;i<password.length;i++)
             password[i]=(char)(password[i]-2);
-        String log="'"+id+"','"+String.valueOf(password)+"'";
+        String log="'"+id+"','"+String.valueOf(password)+"','0'";
         while(!user.insert(values,log)){
             id=(int)(1000+Math.random()*(1000));
-            values="'"+id+"','"+name+"','"+credit+"','"+number+"'";
-            log="'"+id+"','"+String.valueOf(password)+"'";
+            values="'"+id+"','"+name+"','"+credit+"','"+number+"','"+(birthday==null?"":birthday)+"','"+(company==null?"":company)+"'";
+            log="'"+id+"','"+String.valueOf(password)+"','0'";
         }
         return id;
     }
@@ -66,7 +73,7 @@ public class userserviceimpl implements userdataservice {
         name=upo.getUserName();
         credit=upo.getCredit();
         number=upo.getPhone();
-        values="'"+id+"','"+name+"','"+credit+"','"+number+"'";
+        values="'"+id+"','"+name+"','"+credit+"','"+number+"','"+(birthday==null?"":birthday)+"','"+(company==null?"":company)+"'";
 
         return user.update(values);
 

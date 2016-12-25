@@ -6,7 +6,7 @@ package datahelper;
 public interface hotel {
     String find(int hotelid);
 
-    boolean insert(String values);
+    boolean insert(String values,String log);
 
     boolean update(String values);
 }
