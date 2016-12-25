@@ -26,7 +26,7 @@ public class hotelserviceimpl implements hoteldataservice {
     @Override
     public List<HotelPo> usergethotellist(int userid) throws RemoteException {
         String values=or.find("userid",userid);
-
+        if (values.equals("")) return null;
         String[] orders=values.split("\\.");
         HashSet<Integer> x=new HashSet<>();
         for (int i=0;i<orders.length;i++){
