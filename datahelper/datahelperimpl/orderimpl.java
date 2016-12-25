@@ -16,7 +16,7 @@ public class orderimpl implements order {
 
     @Override
     public String find(String type,int id) {
-        String sql="SELECT * FROM order WHERE "+type+"="+id;
+        String sql="SELECT * FROM homework.order WHERE "+type+"='"+id+"'";
         return run.read(sql);
     }
 

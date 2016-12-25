@@ -21,15 +21,15 @@ public class loginserviceimpl implements logindataservice {
     public boolean login(String id,char[] password) throws RemoteException{
         char[] pass=(lg.login(id)).toCharArray();
 
+        if (pass.length!=password.length+4) return false;
 
-        if (pass.length!=password.length+2) return false;
         for (int i=0;i<password.length;i++){
             if (pass[i]!=password[i]-2) return false;
         }
 
         if (pass[password.length+1]=='1') return false;
-        values="'"+id+"','"+"1'";
-        lg.logout(values);
+        values="1";
+        lg.logout(values,id);
 
 
 
@@ -38,7 +38,7 @@ public class loginserviceimpl implements logindataservice {
 
     @Override
     public void logout(int id) throws RemoteException {
-        values="'"+id+"','"+"0'";
-        lg.logout(values);
+        values="0";
+        lg.logout(values,id+"");
     }
 }
