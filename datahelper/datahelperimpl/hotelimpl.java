@@ -13,7 +13,7 @@ public class hotelimpl implements hotel {
     @Override
     public String find(int hotelid) {
         if (hotelid!=0) {
-            String sql = "SELECT * FROM hotel WHERE id=" + hotelid;
+            String sql = "SELECT * FROM hotel WHERE hotelid=" + hotelid;
             return run.read(sql);
         }
         else
