@@ -47,6 +47,8 @@ public class dataremoteobject extends UnicastRemoteObject implements userdataser
 
     @Override
     public int orderinsert(OrderPo opo) throws RemoteException {
+        System.out.println(opo);
+//        return 10;
         return orderservice.orderinsert(opo);
     }
 
