@@ -21,8 +21,9 @@ public class loginimpl implements login {
     }
 
     @Override
-    public boolean logout(String values) {
-        String sql="REPLACE INTO login(id,online) VALUES("+values+")";
-        return  false;
+    public boolean logout(String values,String id) {
+        String sql="UPDATE homework.login SET online="+values+" where id="+id;
+        int i=run.write(sql);
+        return  i==1;
     }
 }

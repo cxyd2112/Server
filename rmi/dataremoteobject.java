@@ -47,6 +47,8 @@ public class dataremoteobject extends UnicastRemoteObject implements userdataser
 
     @Override
     public int orderinsert(OrderPo opo) throws RemoteException {
+        System.out.println(opo);
+//        return 10;
         return orderservice.orderinsert(opo);
     }
 
@@ -72,6 +74,7 @@ public class dataremoteobject extends UnicastRemoteObject implements userdataser
 
     @Override
     public boolean login(String id, char[] password) throws RemoteException {
+//        return true;
         return loginserve.login(id,password);
     }
 
@@ -82,6 +85,7 @@ public class dataremoteobject extends UnicastRemoteObject implements userdataser
 
     @Override
     public List<HotelPo> usergethotellist(int userid) throws RemoteException {
+
         return hotelservice.usergethotellist(userid);
     }
 

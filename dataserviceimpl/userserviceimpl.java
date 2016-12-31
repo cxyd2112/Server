@@ -34,7 +34,7 @@ public class userserviceimpl implements userdataservice {
         if (values.equals("") )
             return null;
 
-        String[] users=values.split("\\.");
+        String[] users=values.split("!");
         String[] s=users[0].split(",");
 
         //set UserPo

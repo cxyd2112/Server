@@ -16,7 +16,7 @@ public class userimpl implements user {
 
     @Override
     public String find(int id){
-        String sql="SELECT * FROM user WHERE id="+id;
+        String sql="SELECT * FROM user WHERE userid="+id;
         return run.read(sql);
     }
 

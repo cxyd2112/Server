@@ -23,7 +23,7 @@ public class orderserviceimpl implements orderdataservice {
     public OrderPo orderfind(int orderid) {
         values=order.find("orderid",orderid);
         if (values.equals("")) return  null;
-        String[] orders=values.split("\\.");
+        String[] orders=values.split("!");
         String[] s=orders[0].split(",");
         int userid=Integer.parseInt(s[1]);
         int hotelid=Integer.parseInt(s[2]);
@@ -49,7 +49,7 @@ public class orderserviceimpl implements orderdataservice {
         values=order.find("userid",userid);
 
         if (values.equals("")) return  null;
-        String[] orders=values.split("\\.");
+        String[] orders=values.split("!");
         ArrayList<OrderPo> res=new ArrayList<>();
         for(int i=0;i<orders.length;i++) {
 
@@ -77,7 +77,7 @@ public class orderserviceimpl implements orderdataservice {
 
         values=order.find("hotelid",hotelid);
         if (values.equals("")) return  null;
-        String[] orders=values.split("\\.");
+        String[] orders=values.split("!");
         ArrayList<OrderPo> res=new ArrayList<>();
         for(int i=0;i<orders.length;i++) {
 

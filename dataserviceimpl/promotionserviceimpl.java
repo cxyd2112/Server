@@ -53,7 +53,7 @@ public class promotionserviceimpl implements promotiondataservice{
     public PromotionerPo promotionerfind(int id) throws RemoteException {
 
         String values=prm.findpromotioner(id);
-        String[] promotioners=values.split("\\.");
+        String[] promotioners=values.split("!");
         String[] s=promotioners[0].split(",");
 
         //set UserPo
@@ -69,7 +69,7 @@ public class promotionserviceimpl implements promotiondataservice{
         if (values.equals("") )
             return null;
 
-        String[] promotions=values.split("\\.");
+        String[] promotions=values.split("!");
 
         ArrayList<PromotionPo> l=new ArrayList<>();
        for(int i=0;i<promotions.length;i++){

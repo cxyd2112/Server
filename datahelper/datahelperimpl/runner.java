@@ -37,7 +37,7 @@ public class runner {
                     result = result+rs.getString(j)+",";
 
                 }
-                result=result+".";
+                result=result+"!";
 
             }
             rs.close();

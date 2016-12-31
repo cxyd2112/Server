@@ -160,6 +160,7 @@ CREATE TABLE `promotioner` (
 
 LOCK TABLES `promotioner` WRITE;
 /*!40000 ALTER TABLE `promotioner` DISABLE KEYS */;
+INSERT INTO `promotioner` VALUES ('3130','营销');
 /*!40000 ALTER TABLE `promotioner` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -200,4 +201,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-25 14:02:04
+-- Dump completed on 2016-12-25 14:17:43
