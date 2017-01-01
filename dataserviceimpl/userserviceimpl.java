@@ -53,10 +53,9 @@ public class userserviceimpl implements userdataservice {
 
     @Override
     public boolean hotelreserved(int userid, int hotelid) throws RemoteException {
-
-        List<OrderPo> s=new orderserviceimpl().findorderbyuserid(userid);
+        List<OrderPo> s=new orderserviceimpl().findorderbyuserid(hotelid);
         for (OrderPo x:s){
-            if (x.getHotelid()==hotelid) return true;
+            if (x.getHotelid()==userid) return true;
         }
 
         return false;

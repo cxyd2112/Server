@@ -26,7 +26,7 @@ public class hotelimpl implements hotel {
     @Override
     public boolean insert(String values, String log) {
 
-        String sql1="INSERT INTO homework.hotel(hotelid,position,address,hotelname,avdachuangfang,avshuangrenjian,avsanrenjian,dachuangfangprice,shuangrenjianprice,sanrenjianprice,star,score,assess,description,scorenum) VALUES("+values+");";
+        String sql1="INSERT INTO homework.hotel(hotelid,position,address,hotelname,avdachuangfang,avshuangrenfang,avsanrenjian,dachuangfangprice,shuangrenjianprice,sanrenjianprice,star,score,assess,description,scorenum) VALUES("+values+");";
         String sql2="INSERT INTO homework.login(id, password,online) VALUES("+log+");";
 
         int i=run.write(sql1);
@@ -38,7 +38,7 @@ public class hotelimpl implements hotel {
     @Override
     public boolean update(String values) {
 
-        String sql1="REPLACE INTO homework.hotel(hotelid,position,address,hotelname,avdachuangfang,avshuangrenjian,avsanrenjian,dachuangfangprice,shuangrenjianprice,sanrenjianprice,star,score,assess,description,scorenum) VALUES("+values+");";
+        String sql1="REPLACE INTO homework.hotel(hotelid,position,address,hotelname,avdachuangfang,avshuangrenfang,avsanrenjian,dachuangfangprice,shuangrenjianprice,sanrenjianprice,star,score,assess,description,scorenum) VALUES("+values+");";
         int i=run.write(sql1);
 
         return i==2;
