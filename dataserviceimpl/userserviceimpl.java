@@ -3,9 +3,12 @@ package dataserviceimpl;
 import datahelper.datahelperimpl.userimpl;
 import datahelper.user;
 import dataservice.userdataservice;
+import po.OrderPo;
 import po.UserPo;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by huihantao on 2016/11/27.
@@ -44,6 +47,17 @@ public class userserviceimpl implements userdataservice {
         birthday=s[4].equals("null") ?null: s[4];
         company=s[5].equals("null") ?null: s[5];
         return new UserPo(id,name,birthday,number,credit,company);
+    }
+
+    @Override
+    public boolean hotelreserved(int userid, int hotelid) throws RemoteException {
+
+        List<OrderPo> s=new orderserviceimpl().findorderbyuserid(userid);
+        for (OrderPo x:s){
+            if (x.getHotelid()==hotelid) return true;
+        }
+
+        return false;
     }
 
     @Override
