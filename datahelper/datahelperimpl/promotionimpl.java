@@ -15,7 +15,7 @@ public class promotionimpl implements promotion{
 
 	@Override
 	public boolean promotionerinsert(String values, String log) {
-		String sql1="INSERT INTO promotioner(userid, name ) VALUES("+values+");";
+		String sql1="INSERT INTO promotioner(id, name ) VALUES("+values+");";
 		String sql2="INSERT INTO login(id, password,online) VALUES("+log+");";
 		int i=run.write(sql1);
 		int j=run.write(sql2);
