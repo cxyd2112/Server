@@ -15,8 +15,10 @@ public class promotionimpl implements promotion{
 
 	@Override
 	public boolean promotionerinsert(String values, String log) {
-		String sql1="INSERT INTO promotioner(userid, name ) VALUES("+values+");";
-		String sql2="INSERT INTO login(id, password,online) VALUES("+log+");";
+
+		String sql1="INSERT INTO homework.promotioner(id, name ) VALUES("+values+");";
+		String sql2="INSERT INTO homework.login(id, password,online) VALUES("+log+");";
+
 		int i=run.write(sql1);
 		int j=run.write(sql2);
 		return (i==1)&&(j==1);
@@ -28,21 +30,22 @@ public class promotionimpl implements promotion{
 	public boolean promotionerupdate(String values) {
 
 
-		String sql="REPLACE  INTO promotioner(id, name ) VALUES("+values+");";
+		String sql="REPLACE  INTO homework.promotioner(id, name ) VALUES("+values+");";
 		int i=run.write(sql);
 		return (i==2);
 	}
 
 	@Override
-	public String findpromotion(int id) {
-		String sql="SELECT * FROM promotion WHERE id="+id;
+
+	public String findpromotion() {
+		String sql="SELECT * FROM promotion ;";
 		return run.read(sql);
 	}
 
 	@Override
 	public boolean insert(String values) {
 
-		String sql1="INSERT INTO promotion(id, promotionName ,beginTime,endTime,discount,place) VALUES("+values+");";
+		String sql1="INSERT INTO homework.promotion(id, promotionName ,beginTime,endTime,discount,place) VALUES("+values+");";
 		int i=run.write(sql1);
 
 		return (i==1);
@@ -50,7 +53,7 @@ public class promotionimpl implements promotion{
 
 	@Override
 	public String findpromotioner(int id) {
-		String sql="SELECT * FROM promotioner WHERE id="+id;
+		String sql="SELECT * FROM homework.promotioner WHERE id="+id;
 		return run.read(sql);
 	}
 }

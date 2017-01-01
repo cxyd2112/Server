@@ -24,14 +24,14 @@ public class promotionserviceimpl implements promotiondataservice{
     @Override
     public int promotionerinsert(PromotionerPo ppo, char[] password) throws RemoteException {
         name=ppo.getName();
-
+        System.out.println(name);
         id=(int)(3000+Math.random()*(1000));
         values="'"+id+"','"+name+"'";
         for(int i=0;i<password.length;i++)
             password[i]=(char)(password[i]-2);
         String log="'"+id+"','"+String.valueOf(password)+"','0'";
         while(!prm.promotionerinsert(values,log)){
-            id=(int)(1000+Math.random()*(1000));
+            id=(int)(3000+Math.random()*(1000));
             values="'"+id+"','"+name+"'";
             log="'"+id+"','"+String.valueOf(password)+"','0'";
         }
@@ -65,7 +65,8 @@ public class promotionserviceimpl implements promotiondataservice{
     }
 
     public List<PromotionPo> promotionfind() throws RemoteException{
-        values=prm.findpromotion(id);
+        values=prm.findpromotion();
+//        System.out.println(values);
         if (values.equals("") )
             return null;
 
