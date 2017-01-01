@@ -17,6 +17,7 @@ public class orderimpl implements order {
     @Override
     public String find(String type,int id) {
         String sql="SELECT * FROM homework.order WHERE "+type+"='"+id+"'";
+        System.out.println(sql);
         return run.read(sql);
     }
 
@@ -30,7 +31,7 @@ public class orderimpl implements order {
 
     @Override
     public boolean update(String values) {
-        String sql="REPLACE INTO order(orderid,userid,hotelid,createtime,executetime,delaytime,endtime,value,status,roomnum,roomstyle,assess,discount,score) VALUES("+values+");";
+        String sql="REPLACE INTO homework.order(orderid,userid,hotelid,createtime,executetime,delaytime,endtime,value,status,roomnum,roomstyle,assess,discount,score) VALUES("+values+");";
         int i=run.write(sql);
         return (i==2);
     }
