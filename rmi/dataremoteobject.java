@@ -54,6 +54,7 @@ public class dataremoteobject extends UnicastRemoteObject implements userdataser
 
     @Override
     public boolean orderupdate(OrderPo opo) throws RemoteException {
+    	System.out.println("     "+opo.getRoomstyle()+"asdasdsada");
         return orderservice.orderupdate(opo);
     }
 
@@ -69,6 +70,7 @@ public class dataremoteobject extends UnicastRemoteObject implements userdataser
 
     @Override
     public List<OrderPo> findorderbyhotelid(int hotelid) throws RemoteException {
+    	System.out.print(hotelid);
         return orderservice.findorderbyhotelid(hotelid);
     }
 

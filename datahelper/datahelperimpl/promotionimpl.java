@@ -34,8 +34,9 @@ public class promotionimpl implements promotion{
 	}
 
 	@Override
-	public String findpromotion(int id) {
-		String sql="SELECT * FROM homework.promotion WHERE id="+id;
+
+	public String findpromotion() {
+		String sql="SELECT * FROM promotion ;";
 		return run.read(sql);
 	}
 
