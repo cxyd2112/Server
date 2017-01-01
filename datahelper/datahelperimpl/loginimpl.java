@@ -14,7 +14,7 @@ public class loginimpl implements login {
 
     @Override
     public String login(String id) {
-        String sql="SELECT password,online FROM login WHERE id="+id;
+        String sql="SELECT password,online FROM homework.login WHERE id="+id;
 
         return run.read(sql);
 
