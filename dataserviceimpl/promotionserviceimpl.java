@@ -24,7 +24,6 @@ public class promotionserviceimpl implements promotiondataservice{
     @Override
     public int promotionerinsert(PromotionerPo ppo, char[] password) throws RemoteException {
         name=ppo.getName();
-        System.out.println(name);
         id=(int)(3000+Math.random()*(1000));
         values="'"+id+"','"+name+"'";
         for(int i=0;i<password.length;i++)
@@ -66,7 +65,6 @@ public class promotionserviceimpl implements promotiondataservice{
 
     public List<PromotionPo> promotionfind() throws RemoteException{
         values=prm.findpromotion();
-//        System.out.println(values);
         if (values.equals("") )
             return null;
 

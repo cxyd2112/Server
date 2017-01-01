@@ -40,7 +40,6 @@ public class userserviceimpl implements userdataservice {
 
         String[] users=values.split("!");
         String[] s=users[0].split(",");
-        System.out.print(s.length);
 
         //set UserPo
         name=s[1];
