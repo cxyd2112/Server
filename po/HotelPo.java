@@ -76,7 +76,7 @@ public class HotelPo implements Serializable{
         sanrenjianprice=Integer.parseInt(s[9]);
         star=Integer.parseInt(s[10]);
         score= Double.parseDouble(s[11]);
-        assess=s[12];
+        assess=s[12].equals("null")?null:s[12];
         description=s[13];
         scorenum=Integer.parseInt(s[14]);
     }
@@ -178,7 +178,7 @@ public class HotelPo implements Serializable{
         return "'"+position+"','"+address+"','"+hotelName+"','"+
                 avdachuangfang+"','"+avshuangrenfang+"','"+avsanrenjian+"','"+
                 dachuangfangprice+"','"+shuangrenfangprice+"','"+sanrenjianprice+
-                "','"+star+"','"+score+"','"+(assess==null?"":assess)+"','"+description+"','"+scorenum+"'";
+                "','"+star+"','"+score+"','"+assess+"','"+description+"','"+scorenum+"'";
     }
 
 
