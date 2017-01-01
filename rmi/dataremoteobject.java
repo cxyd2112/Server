@@ -106,6 +106,7 @@ public class dataremoteobject extends UnicastRemoteObject implements userdataser
 
     @Override
     public HotelPo findhotelbyid(int hotelID) throws RemoteException {
+    	System.out.print(hotelservice.findhotelbyid(hotelID));
         return hotelservice.findhotelbyid(hotelID);
     }
 
