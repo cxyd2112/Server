@@ -15,13 +15,10 @@ public class promotionimpl implements promotion{
 
 	@Override
 	public boolean promotionerinsert(String values, String log) {
-<<<<<<< HEAD
-		String sql1="INSERT INTO promotioner(id, name ) VALUES("+values+");";
-		String sql2="INSERT INTO login(id, password,online) VALUES("+log+");";
-=======
+
 		String sql1="INSERT INTO homework.promotioner(id, name ) VALUES("+values+");";
 		String sql2="INSERT INTO homework.login(id, password,online) VALUES("+log+");";
->>>>>>> dacca3c751ed4303bffceec54ae9b00491dd35c3
+
 		int i=run.write(sql1);
 		int j=run.write(sql2);
 		return (i==1)&&(j==1);
