@@ -33,8 +33,8 @@ public class orderserviceimpl implements orderdataservice {
         long endtime=Long.parseLong(s[6]);
         int value=Integer.parseInt(s[7]);
         int status=Integer.parseInt(s[8]);
-        int roomnum=Integer.parseInt(s[9]);
-        int roomstyle=Integer.parseInt(s[10]);
+        int roomnum=Integer.parseInt(s[10]);
+        int roomstyle=Integer.parseInt(s[9]);
         String assess=s[11];
         double discount= Double.parseDouble(s[12]);
         int score=Integer.parseInt(s[13]);
@@ -62,8 +62,8 @@ public class orderserviceimpl implements orderdataservice {
             long endtime=Long.parseLong(s[6]);
             int value=Integer.parseInt(s[7]);
             int status=Integer.parseInt(s[8]);
-            int roomnum=Integer.parseInt(s[9]);
-            int roomstyle=Integer.parseInt(s[10]);
+            int roomnum=Integer.parseInt(s[10]);
+            int roomstyle=Integer.parseInt(s[9]);
             String assess=s[11];
             double discount= Double.parseDouble(s[12]);
             int score=Integer.parseInt(s[13]);
@@ -91,8 +91,8 @@ public class orderserviceimpl implements orderdataservice {
             long endtime=Long.parseLong(s[6]);
             int value=Integer.parseInt(s[7]);
             int status=Integer.parseInt(s[8]);
-            int roomnum=Integer.parseInt(s[9]);
-            int roomstyle=Integer.parseInt(s[10]);
+            int roomnum=Integer.parseInt(s[10]);
+            int roomstyle=Integer.parseInt(s[9]);
             String assess=s[11];
             double discount= Double.parseDouble(s[12]);
             int score=Integer.parseInt(s[13]);

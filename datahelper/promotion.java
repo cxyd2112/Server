@@ -12,7 +12,7 @@ public interface promotion {
     boolean promotionerupdate(String values);
 
 
-	String findpromotion(int id);
+	String findpromotion();
 
     boolean insert(String values);
 
