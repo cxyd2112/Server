@@ -31,11 +31,13 @@ public class userserviceimpl implements userdataservice {
     public UserPo userfind(int id) throws RemoteException {
 
         values=user.find(id);
+      
         if (values.equals("") )
             return null;
 
         String[] users=values.split("!");
         String[] s=users[0].split(",");
+        System.out.print(s.length);
 
         //set UserPo
         name=s[1];
@@ -73,8 +75,10 @@ public class userserviceimpl implements userdataservice {
         name=upo.getUserName();
         credit=upo.getCredit();
         number=upo.getPhone();
+        birthday=upo.getBirthday();
+        company=upo.getCompany();
         values="'"+id+"','"+name+"','"+credit+"','"+number+"','"+(birthday==null?"":birthday)+"','"+(company==null?"":company)+"'";
-
+        System.out.println(values);
         return user.update(values);
 
 

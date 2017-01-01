@@ -42,6 +42,7 @@ public class dataremoteobject extends UnicastRemoteObject implements userdataser
 
     @Override
     public UserPo userfind(int id) throws RemoteException {
+    	System.out.println();
         return userserve.userfind(id);
     }
 
