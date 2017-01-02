@@ -40,7 +40,7 @@ public class orderserviceimpl implements orderdataservice {
         int score=Integer.parseInt(s[13]);
 
 
-        return new OrderPo(orderid,userid,hotelid,createtime,executetime,delaytime,endtime,value,status,roomnum,roomstyle,assess,discount,score);
+        return new OrderPo(orderid,userid,hotelid,createtime,executetime,delaytime,endtime,value,status,roomstyle,roomnum,assess,discount,score);
     }
 
     @Override
@@ -67,7 +67,7 @@ public class orderserviceimpl implements orderdataservice {
             String assess=s[11];
             double discount= Double.parseDouble(s[12]);
             int score=Integer.parseInt(s[13]);
-            res.add(new OrderPo(orderid,userid,hotelid,createtime,executetime,delaytime,endtime,value,status,roomnum,roomstyle,assess,discount,score));
+            res.add(new OrderPo(orderid,userid,hotelid,createtime,executetime,delaytime,endtime,value,status,roomstyle,roomnum,assess,discount,score));
         }
         return res;
     }
@@ -76,12 +76,13 @@ public class orderserviceimpl implements orderdataservice {
     public List<OrderPo> findorderbyhotelid(int hotelid) {
 
         values=order.find("hotelid",hotelid);
-        if (values.equals("")) return  null;
+        System.out.print(values);
+        if (values.equals("")){
+        	return  null;
+        }
         String[] orders=values.split("!");
         ArrayList<OrderPo> res=new ArrayList<>();
         for(int i=0;i<orders.length;i++) {
-
-
             String[] s = orders[i].split(",");
             int orderid=Integer.parseInt(s[0]);
             int userid=Integer.parseInt(s[1]);
@@ -96,7 +97,7 @@ public class orderserviceimpl implements orderdataservice {
             String assess=s[11];
             double discount= Double.parseDouble(s[12]);
             int score=Integer.parseInt(s[13]);
-            res.add(new OrderPo(orderid,userid,hotelid,createtime,executetime,delaytime,endtime,value,status,roomnum,roomstyle,assess,discount,score));
+            res.add(new OrderPo(orderid,userid,hotelid,createtime,executetime,delaytime,endtime,value,status,roomstyle,roomnum,assess,discount,score));
         }
         return res;
     }

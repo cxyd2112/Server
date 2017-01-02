@@ -26,8 +26,10 @@ public class hotelimpl implements hotel {
     @Override
     public boolean insert(String values, String log) {
 
+
         String sql1="INSERT INTO homework.hotel(hotelid,position,address,hotelname,avdachuangfang,avshuangrenfang,avsanrenjian,dachuangfangprice,shuangrenjianprice,sanrenjianprice,star,score,assess,description,scorenum) VALUES("+values+");";
         String sql2="INSERT INTO homework.login(id, password,online) VALUES("+log+");";
+
 
         int i=run.write(sql1);
         int j=run.write(sql2);
