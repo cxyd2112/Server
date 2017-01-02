@@ -79,11 +79,11 @@ public class hotelserviceimpl implements hoteldataservice {
 
     @Override
     public HotelPo findhotelbyid(int hotelID) throws RemoteException {
+        System.out.println(hotelID);
 
-
-        String values=ht.find(hotelID);
+        String values=ht.find(2210);
         String[] hotels=values.split("!");
-
+        System.out.println(hotels[0]);
         return new HotelPo(hotels[0]);
     }
 }

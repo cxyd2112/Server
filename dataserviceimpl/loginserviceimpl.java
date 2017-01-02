@@ -3,8 +3,13 @@ package dataserviceimpl;
 import datahelper.datahelperimpl.loginimpl;
 import datahelper.login;
 import dataservice.logindataservice;
+import po.HotelPo;
+import po.OrderPo;
 
 import java.rmi.RemoteException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by huihantao on 2016/12/21.
@@ -30,6 +35,24 @@ public class loginserviceimpl implements logindataservice {
         if (pass[password.length+1]=='1') return false;
         values="1";
         lg.logout(values,id);
+
+
+
+
+        {
+            List<OrderPo> x =new orderserviceimpl().findorderbyhotelid(0);
+            if (x==null) return true;
+            for (OrderPo y:x){
+                SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+                String nowtime = df.format(new Date());
+                long now=Long.parseLong(nowtime);
+                if (y.getDelaytime()<now&&y.getStatus()==0) y.setStatus(2);
+
+            }
+
+        }
+
+
 
 
 
